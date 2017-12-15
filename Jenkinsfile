@@ -249,10 +249,11 @@ pipeline {
             sh 'make scan-build'
             // publish html
             publishHTML target: [
+              reportTitles: 'clang static analyzer',
               allowMissing: false,
-              alwaysLinkToLastBuild: false,
+              alwaysLinkToLastBuild: true,
               keepAll: true,
-              reportDir: 'build/scan-build/*',
+              reportDir: 'build/scan-build/',
               reportFiles: '*',
               reportName: 'Clang Static Analyzer'
             ]
@@ -284,10 +285,11 @@ pipeline {
             sh 'make cppcheck'
             // publish html
             publishHTML target: [
+              reportTitles: 'cppcheck',
               allowMissing: false,
-              alwaysLinkToLastBuild: false,
+              alwaysLinkToLastBuild: true,
               keepAll: true,
-              reportDir: 'build/cppcheck/*',
+              reportDir: 'build/cppcheck/',
               reportFiles: '*',
               reportName: 'cppcheck'
             ]
